@@ -70,7 +70,6 @@ public class IDE extends javax.swing.JFrame {
         jPanel11.setBackground(new java.awt.Color(255, 255, 204));
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 204));
-        jTabbedPane1.setForeground(new java.awt.Color(255, 153, 153));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
 
