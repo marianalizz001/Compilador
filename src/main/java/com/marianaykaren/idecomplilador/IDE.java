@@ -5,19 +5,32 @@
  */
 package com.marianaykaren.idecomplilador;
 
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.text.Element;
+
 /**
  *
  * @author maria
  */
 public class IDE extends javax.swing.JFrame {
-
+int nLinea=0;
+Vector <String> linea = new Vector();
     /**
      * Creates new form IDE
      */
     public IDE() {
         initComponents();
+        InicializarLinea();
     }
 
+    void InicializarLinea (){
+        for (int i=1; i<10000;i++){
+            linea.add(String.valueOf(i));
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +53,8 @@ public class IDE extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         epCodigo = new javax.swing.JEditorPane();
-        tfNumeros = new java.awt.TextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tfNumeros = new javax.swing.JTextArea();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -174,22 +188,18 @@ public class IDE extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
-        epCodigo.setBackground(new java.awt.Color(102, 102, 102));
-        epCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        epCodigo.setBackground(new java.awt.Color(255, 255, 255));
         epCodigo.setEnabled(false);
-        jScrollPane1.setViewportView(epCodigo);
-
-        tfNumeros.setBackground(new java.awt.Color(102, 102, 102));
-        tfNumeros.setEditable(false);
-        tfNumeros.setEnabled(false);
-        tfNumeros.setForeground(new java.awt.Color(255, 255, 255));
-        tfNumeros.setName(""); // NOI18N
-        tfNumeros.setText("12");
-        tfNumeros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNumerosActionPerformed(evt);
+        epCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                epCodigoKeyPressed(evt);
             }
         });
+        jScrollPane1.setViewportView(epCodigo);
+
+        tfNumeros.setColumns(20);
+        tfNumeros.setRows(5);
+        jScrollPane2.setViewportView(tfNumeros);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -197,9 +207,9 @@ public class IDE extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tfNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -208,14 +218,11 @@ public class IDE extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 204));
@@ -361,6 +368,8 @@ public class IDE extends javax.swing.JFrame {
     }//GEN-LAST:event_mArchivoActionPerformed
 
     private void bmNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmNuevoActionPerformed
+        epCodigo.setEnabled(true);
+
         // TODO add your handling code here:
     }//GEN-LAST:event_bmNuevoActionPerformed
 
@@ -368,9 +377,55 @@ public class IDE extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bmSalirActionPerformed
 
-    private void tfNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumerosActionPerformed
+    private void epCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_epCodigoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfNumerosActionPerformed
+        //CODIGO FUNCIONAL PARA LINEAS Y COLUMNAS CON EL CURSOR
+        /*
+        epCodigo.addCaretListener(new CaretListener() {
+         public void caretUpdate(CaretEvent ce) {
+            int pos = epCodigo.getCaretPosition();
+            Element map = epCodigo.getDocument().getDefaultRootElement();
+            int row = map.getElementIndex(pos);
+            Element lineElem = map.getElement(row);
+            int col = pos - lineElem.getStartOffset();
+  
+            tfNumeros.setText(row+"\n");
+            //tfNumeros.setText(""+col);
+         }
+      });*/
+        String aux2 = "1\n";
+        int nLi = 0;
+        for(int i=0; i<epCodigo.getText().length();i++){
+            String caracter= String.valueOf(epCodigo.getText().charAt(i));
+            if (caracter.equals("\n")){
+                nLi=nLi+1;
+                aux2 =aux2 + String.valueOf(nLi+1) + "\n";
+                tfNumeros.setText(aux2);
+            }
+        }
+        int aux = epCodigo.getText().split("\n").length;
+        
+        System.out.println(nLi);
+        
+        /*for (int i=0; i<aux;i++){
+            aux2 = aux2 + linea.get(i) + "\n";
+        }*/
+        //System.out.println(linea.size());
+        
+        //System.out.println(aux);
+        
+        /*
+        if (aux>nLinea){
+            nLinea = aux;
+            linea.add(String.valueOf(nLinea));
+            aux2 = tfNumeros.getText() + linea.get(nLinea-1) + "\n";
+            tfNumeros.setText(aux2);
+        }if (aux<nLinea){
+           
+        }*/
+        
+        
+    }//GEN-LAST:event_epCodigoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -420,7 +475,7 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JMenuItem bmNuevo;
     private javax.swing.JMenuItem bmPegar;
     private javax.swing.JMenuItem bmSalir;
-    private javax.swing.JEditorPane epCodigo;
+    public javax.swing.JEditorPane epCodigo;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
@@ -434,12 +489,13 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mCompEjec;
     private javax.swing.JMenu mEditar;
     private javax.swing.JMenuBar menu;
-    private java.awt.TextField tfNumeros;
+    private javax.swing.JTextArea tfNumeros;
     // End of variables declaration//GEN-END:variables
 }

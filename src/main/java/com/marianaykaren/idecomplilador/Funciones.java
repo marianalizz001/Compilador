@@ -5,6 +5,7 @@
  */
 package com.marianaykaren.idecomplilador;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,11 +23,23 @@ public class Funciones {
     private JFileChooser accion = null;
     private File archivo = null;
     private IDE ide;
-    public static String ruta = "";
+    public static String ruta = ""; 
+   
+    public void ContarLineas(IDE ide){
+        this.ide=ide;
+        String cadena;
+        cadena=ide.epCodigo.getText();
+        int num=0;
+        ide.tfNumeros.setText(cadena);
+        for(int i=0;i<=cadena.length();i++){
+            
+        }
+        
+        System.out.println(ide.epCodigo.getText().split("\n").length);
+    } 
 
     public void LeerFichero(IDE ide) {
         this.ide = ide;
-
         accion = new JFileChooser();
         accion.setFileSelectionMode(0);
         FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("TXT", "txt");
@@ -140,5 +153,7 @@ public class Funciones {
         }
     }
 
+    
+    
 }
 
