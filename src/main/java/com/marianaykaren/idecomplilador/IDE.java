@@ -98,7 +98,7 @@ public class IDE extends javax.swing.JFrame {
             .addGap(0, 473, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", jPanel4);
+        jTabbedPane1.addTab("Léxico", jPanel4);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -266,7 +266,6 @@ public class IDE extends javax.swing.JFrame {
         jMenu1.setText("Archivo");
 
         jMenuItem1.setText("Nuevo");
-        jMenuItem1.setActionCommand("Nuevo");
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Abrir Archivo...");
