@@ -52,7 +52,6 @@ public class IDE extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         epCodigo = new javax.swing.JEditorPane();
-        tfNumeros = new java.awt.TextField();
         lbl_nombre = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
@@ -62,7 +61,6 @@ public class IDE extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        epCodigo = new javax.swing.JEditorPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         tfNumeros = new javax.swing.JTextArea();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -118,11 +116,11 @@ public class IDE extends javax.swing.JFrame {
         tfNumeros.setEnabled(false);
         tfNumeros.setForeground(new java.awt.Color(255, 255, 255));
         tfNumeros.setName(""); // NOI18N
-        tfNumeros.addActionListener(new java.awt.event.ActionListener() {
+        /*tfNumeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNumerosActionPerformed(evt);
             }
-        });
+        });*/
 
         lbl_nombre.setForeground(new java.awt.Color(0, 0, 0));
         lbl_nombre.setText("Aqui las lineas");
@@ -207,8 +205,6 @@ public class IDE extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Código Intermedio", jPanel9);
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,11 +217,11 @@ public class IDE extends javax.swing.JFrame {
 
         epCodigo.setBackground(new java.awt.Color(255, 255, 255));
         epCodigo.setEnabled(false);
-        epCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        /*epCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 epCodigoKeyPressed(evt);
             }
-        });
+        });*/
         jScrollPane1.setViewportView(epCodigo);
 
         tfNumeros.setColumns(20);
