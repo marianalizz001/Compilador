@@ -111,7 +111,7 @@ public class IDE extends javax.swing.JFrame {
             .addGap(0, 473, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab2", jPanel5);
+        jTabbedPane1.addTab("Sintatico", jPanel5);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
