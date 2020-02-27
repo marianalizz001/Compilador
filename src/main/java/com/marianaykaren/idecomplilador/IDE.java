@@ -39,29 +39,27 @@ public class IDE extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
-        jPanel10 = new javax.swing.JPanel();
-        textField2 = new java.awt.TextField();
+        epCodigo = new javax.swing.JEditorPane();
+        tfNumeros = new java.awt.TextField();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        menu = new javax.swing.JMenuBar();
+        mArchivo = new javax.swing.JMenu();
+        bmNuevo = new javax.swing.JMenuItem();
+        bmAbrirArchivo = new javax.swing.JMenuItem();
+        bmGuardar = new javax.swing.JMenuItem();
+        bmGuardarComo = new javax.swing.JMenuItem();
+        bmSalir = new javax.swing.JMenuItem();
+        mEditar = new javax.swing.JMenu();
+        bmHacer = new javax.swing.JMenuItem();
+        bmDeshacer = new javax.swing.JMenuItem();
+        bmCortar = new javax.swing.JMenuItem();
+        bmCopiar = new javax.swing.JMenuItem();
+        bmPegar = new javax.swing.JMenuItem();
+        mCompEjec = new javax.swing.JMenu();
+        bmCompilar = new javax.swing.JMenuItem();
+        bmEjecutar = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -176,7 +174,22 @@ public class IDE extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
-        jScrollPane1.setViewportView(jEditorPane1);
+        epCodigo.setBackground(new java.awt.Color(102, 102, 102));
+        epCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        epCodigo.setEnabled(false);
+        jScrollPane1.setViewportView(epCodigo);
+
+        tfNumeros.setBackground(new java.awt.Color(102, 102, 102));
+        tfNumeros.setEditable(false);
+        tfNumeros.setEnabled(false);
+        tfNumeros.setForeground(new java.awt.Color(255, 255, 255));
+        tfNumeros.setName(""); // NOI18N
+        tfNumeros.setText("12");
+        tfNumeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNumerosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -184,6 +197,8 @@ public class IDE extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(tfNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,41 +209,13 @@ public class IDE extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-        );
-
-        jPanel10.setBackground(new java.awt.Color(255, 255, 204));
-
-        textField2.setBackground(new java.awt.Color(204, 204, 255));
-        textField2.setEditable(false);
-        textField2.setEnabled(false);
-        textField2.setName(""); // NOI18N
-        textField2.setText("12345");
-        textField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 204));
@@ -263,68 +250,80 @@ public class IDE extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("tab2", jPanel12);
 
-        jMenu1.setText("Archivo");
-
-        jMenuItem1.setText("Nuevo");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Abrir Archivo...");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mArchivo.setText("Archivo");
+        mArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mArchivoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Abrir Folder...");
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem4.setText("Guardar");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setText("Guardar como...");
-        jMenu1.add(jMenuItem5);
-
-        jMenuItem8.setText("Salir");
-        jMenu1.add(jMenuItem8);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Editar");
-
-        jMenuItem10.setText("Hacer");
-        jMenu2.add(jMenuItem10);
-
-        jMenuItem11.setText("Deshacer");
-        jMenu2.add(jMenuItem11);
-
-        jMenuItem9.setText("Cortar");
-        jMenu2.add(jMenuItem9);
-
-        jMenuItem6.setText("Copiar");
-        jMenu2.add(jMenuItem6);
-
-        jMenuItem7.setText("Pegar");
-        jMenu2.add(jMenuItem7);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu4.setText("Compilar & Ejecutar");
-
-        jMenuItem12.setText("Compilar");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+        bmNuevo.setText("Nuevo");
+        bmNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
+                bmNuevoActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem12);
+        mArchivo.add(bmNuevo);
 
-        jMenuItem13.setText("Debuguear");
-        jMenu4.add(jMenuItem13);
+        bmAbrirArchivo.setText("Abrir Archivo...");
+        bmAbrirArchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bmAbrirArchivoActionPerformed(evt);
+            }
+        });
+        mArchivo.add(bmAbrirArchivo);
 
-        jMenuBar1.add(jMenu4);
+        bmGuardar.setText("Guardar");
+        mArchivo.add(bmGuardar);
 
-        setJMenuBar(jMenuBar1);
+        bmGuardarComo.setText("Guardar como...");
+        mArchivo.add(bmGuardarComo);
+
+        bmSalir.setText("Salir");
+        bmSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bmSalirActionPerformed(evt);
+            }
+        });
+        mArchivo.add(bmSalir);
+
+        menu.add(mArchivo);
+
+        mEditar.setText("Editar");
+
+        bmHacer.setText("Hacer");
+        mEditar.add(bmHacer);
+
+        bmDeshacer.setText("Deshacer");
+        mEditar.add(bmDeshacer);
+
+        bmCortar.setText("Cortar");
+        mEditar.add(bmCortar);
+
+        bmCopiar.setText("Copiar");
+        mEditar.add(bmCopiar);
+
+        bmPegar.setText("Pegar");
+        mEditar.add(bmPegar);
+
+        menu.add(mEditar);
+
+        mCompEjec.setText("Compilar & Ejecutar");
+
+        bmCompilar.setText("Compilar");
+        bmCompilar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bmCompilarActionPerformed(evt);
+            }
+        });
+        mCompEjec.add(bmCompilar);
+
+        bmEjecutar.setText("Debuguear");
+        mCompEjec.add(bmEjecutar);
+
+        menu.add(mCompEjec);
+
+        setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -333,19 +332,14 @@ public class IDE extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -354,17 +348,29 @@ public class IDE extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
+    private void bmAbrirArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmAbrirArchivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField2ActionPerformed
+    }//GEN-LAST:event_bmAbrirArchivoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void bmCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmCompilarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_bmCompilarActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void mArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mArchivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }//GEN-LAST:event_mArchivoActionPerformed
+
+    private void bmNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bmNuevoActionPerformed
+
+    private void bmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bmSalirActionPerformed
+
+    private void tfNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumerosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNumerosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,27 +408,21 @@ public class IDE extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JEditorPane jEditorPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem bmAbrirArchivo;
+    private javax.swing.JMenuItem bmCompilar;
+    private javax.swing.JMenuItem bmCopiar;
+    private javax.swing.JMenuItem bmCortar;
+    private javax.swing.JMenuItem bmDeshacer;
+    private javax.swing.JMenuItem bmEjecutar;
+    private javax.swing.JMenuItem bmGuardar;
+    private javax.swing.JMenuItem bmGuardarComo;
+    private javax.swing.JMenuItem bmHacer;
+    private javax.swing.JMenuItem bmNuevo;
+    private javax.swing.JMenuItem bmPegar;
+    private javax.swing.JMenuItem bmSalir;
+    private javax.swing.JEditorPane epCodigo;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
@@ -436,6 +436,10 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private java.awt.TextField textField2;
+    private javax.swing.JMenu mArchivo;
+    private javax.swing.JMenu mCompEjec;
+    private javax.swing.JMenu mEditar;
+    private javax.swing.JMenuBar menu;
+    private java.awt.TextField tfNumeros;
     // End of variables declaration//GEN-END:variables
 }
