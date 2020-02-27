@@ -47,7 +47,21 @@ public class IDE extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -249,11 +263,67 @@ public class IDE extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("tab2", jPanel12);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Archivo");
+
+        jMenuItem1.setText("Nuevo");
+        jMenuItem1.setActionCommand("Nuevo");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Abrir Archivo...");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Abrir Folder...");
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setText("Guardar");
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("Guardar como...");
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem8.setText("Salir");
+        jMenu1.add(jMenuItem8);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Editar");
+
+        jMenuItem10.setText("Hacer");
+        jMenu2.add(jMenuItem10);
+
+        jMenuItem11.setText("Deshacer");
+        jMenu2.add(jMenuItem11);
+
+        jMenuItem9.setText("Cortar");
+        jMenu2.add(jMenuItem9);
+
+        jMenuItem6.setText("Copiar");
+        jMenu2.add(jMenuItem6);
+
+        jMenuItem7.setText("Pegar");
+        jMenu2.add(jMenuItem7);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu4.setText("Compilar & Ejecutar");
+
+        jMenuItem12.setText("Compilar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem12);
+
+        jMenuItem13.setText("Debuguear");
+        jMenu4.add(jMenuItem13);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -288,6 +358,14 @@ public class IDE extends javax.swing.JFrame {
     private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textField2ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,7 +407,21 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
