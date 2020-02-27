@@ -30,7 +30,6 @@ public class IDE extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         epCodigo = new javax.swing.JEditorPane();
-        tfNumeros = new java.awt.TextField();
         lbl_nombre = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
@@ -39,6 +38,8 @@ public class IDE extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tfNumeros = new javax.swing.JTextArea();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -85,20 +86,13 @@ public class IDE extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jScrollPane1.setViewportView(epCodigo);
-
-        tfNumeros.setBackground(new java.awt.Color(102, 102, 102));
-        tfNumeros.setEditable(false);
-        tfNumeros.setEnabled(false);
-        tfNumeros.setForeground(new java.awt.Color(255, 255, 255));
-        tfNumeros.setName(""); // NOI18N
-        tfNumeros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNumerosActionPerformed(evt);
+        epCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                epCodigoKeyPressed(evt);
             }
         });
+        jScrollPane1.setViewportView(epCodigo);
 
-        lbl_nombre.setForeground(new java.awt.Color(0, 0, 0));
         lbl_nombre.setText("Aqui las lineas");
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 204));
@@ -182,21 +176,24 @@ public class IDE extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Código Intermedio", jPanel9);
 
+        tfNumeros.setColumns(20);
+        tfNumeros.setRows(5);
+        jScrollPane2.setViewportView(tfNumeros);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tfNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,8 +201,8 @@ public class IDE extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTabbedPane1)
-                    .addComponent(tfNumeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -358,7 +355,7 @@ public class IDE extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(178, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -426,9 +423,22 @@ public class IDE extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bmGuardarActionPerformed
 
-    private void tfNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumerosActionPerformed
+    private void epCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_epCodigoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfNumerosActionPerformed
+        String aux2 = "1\n";
+        int nLi = 0;
+        for(int i=0; i<epCodigo.getText().length();i++){
+            String caracter= String.valueOf(epCodigo.getText().charAt(i));
+            if (caracter.equals("\n")){
+                nLi=nLi+1;
+                aux2 =aux2 + String.valueOf(nLi+1) + "\n";
+                tfNumeros.setText(aux2);
+            }
+        }
+        int aux = epCodigo.getText().split("\n").length;
+        
+        System.out.println(nLi);
+    }//GEN-LAST:event_epCodigoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -492,6 +502,7 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     public static javax.swing.JLabel lbl_nombre;
@@ -506,6 +517,6 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JMenu mCompEjec7;
     private javax.swing.JMenu mEditar;
     private javax.swing.JMenuBar menu;
-    public static java.awt.TextField tfNumeros;
+    private javax.swing.JTextArea tfNumeros;
     // End of variables declaration//GEN-END:variables
 }
